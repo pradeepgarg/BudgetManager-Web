@@ -15,9 +15,11 @@ export default function reducer(state = initialState, action) {
     return loop(
       {
         ...state,
+      
       },
-      Cmd.run(() => post('auth/token/login', action.data), {
-        successActionCreator: (foo) => console.log("passes", foo),
+      Cmd.run(() => post('auth/token/login', action.data,), {
+        
+        successActionCreator: (data) => console.log("this is sac" , data),
         failActionCreator: () => console.log("failed"),
         args: ['123']
       })
